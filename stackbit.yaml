@@ -13,6 +13,12 @@ pageLayoutKey: layout
 objectTypeKey: type
 styleObjectModelName: ThemeStyle
 contentModels:
+  DemoLayout:
+    isPage: true
+    singleInstance: true
+    urlPath: '/demo'
+    file: 'demo.md'
+    newFilePath: 'demo.md'
   PageLayout:
     isPage: true
     urlPath: '/{slug}'

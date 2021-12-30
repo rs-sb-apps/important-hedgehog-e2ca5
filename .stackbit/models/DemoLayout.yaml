@@ -1,0 +1,15 @@
+name: DemoLayout
+label: Demo
+labelField: title
+layout: DemoLayout
+hideContent: true
+fields:
+  - type: string
+    name: title
+    label: Title
+  - type: string
+    name: header
+    label: Header
+  - type: string
+    name: text
+    label: Text
