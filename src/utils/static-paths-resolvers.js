@@ -1,9 +1,14 @@
 import { getAllPosts, getAllCategoryPostsSorted, getAllAuthorPostsSorted, generatePagedPathsForPage } from './data-utils';
 
+// URL paths which have a dedicated route in src/pages/, and should not be handled by the catch all route.
+const dedicatedRoutes = ['/demo'];
+
 export function resolveStaticPaths({ pages, objects }) {
     return pages.reduce((paths, page) => {
         const objectType = page?.type || page?.layout;
         const pageUrlPath = page.__metadata?.urlPath;
+        if (dedicatedRoutes.includes(pageUrlPath)) return paths; // Skip this path, so it won't be handled by the catch-all route
+
         if (objectType && StaticPathsResolvers[objectType]) {
             const resolver = StaticPathsResolvers[objectType];
             return paths.concat(resolver(page, objects));
